@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - SCAI</title>
+    <link rel="stylesheet" href="css/pricing.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            z-index: 1000;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            width: 200px;
+            height: auto;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+            padding-left: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li:first-child {
+            margin-left: 200px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        nav .actions {
+            display: flex;
+            align-items: center;
+        }
+        nav .actions a.try-for-free {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .pricing {
+            text-align: center;
+            padding: 100px 20px 50px; /* Adjust for fixed header */
+            background-color: #f9f9f9;
+        }
+        .pricing h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .pricing p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .toggle {
+            display: inline-block;
+            margin: 20px 0;
+        }
+        .toggle span {
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        .pricing-plans {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .plan {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: left;
+        }
+        .plan h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .plan .price {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .plan ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .plan ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .plan .note {
+            font-size: 14px;
+            color: #666;
+        }
+        .cta {
+            margin: 40px 0;
+        }
+        .cta h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .cta a.get-started {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="images/logo.png" alt="SCAI Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#faqs">FAQs</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="index.html#affiliate">Affiliate</a></li>
+                    <li><a href="login.html" class="login">Log in</a></li>
+                </ul>
+                <div class="actions">
+                    <a href="login.html" class="try-for-free">Try for free</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="pricing">
+            <h1>Pricing</h1>
+            <p>Get 25% off annual plans. Cancel anytime. No questions asked.</p>
+            <div class="toggle">
+                <span>Annual</span>
+                <input type="checkbox" id="toggle" onclick="togglePricing()" />
+                <label for="toggle"></label>
+                <span>Monthly</span>
+            </div>
+            <div class="pricing-plans">
+                <div class="plan">
+                    <h2>Free</h2>
+                    <p class="price"><span class="price-value" data-monthly="0" data-annual="0">$0</span><span>/mo</span></p>
+                    <ul>
+                        <li>5 queries per day</li>
+                        <li>250,000 characters (~100 pages)</li>
+                        <li>10 MB file size limit</li>
+                        <li>Add article links</li>
+                        <li>Add YouTube videos</li>
+                        <li>OCR for scanned documents</li>
+                    </ul>
+                    <p class="note">* Books deleted after 7 days of inactivity.</p>
+                </div>
+                <div class="plan">
+                    <h2>Lite</h2>
+                    <p class="price"><span class="price-value" data-monthly="6" data-annual="4">$4</span><span>/mo</span></p>
+                    <ul>
+                        <li>100 queries per day</li>
+                        <li>10 million characters (~4,000 pages)</li>
+                        <li>100 MB file size limit</li>
+                        <li>Add article links</li>
+                        <li>Add YouTube videos</li>
+                        <li>OCR for scanned documents</li>
+                    </ul>
+                </div>
+                <div class="plan">
+                    <h2>Pro</h2>
+                    <p class="price"><span class="price-value" data-monthly="15" data-annual="10">$10</span><span>/mo</span></p>
+                    <ul>
+                        <li>1000 queries per day</li>
+                        <li>50 million characters (~20,000 pages)</li>
+                        <li>No file size limit</li>
+                        <li>Add article links</li>
+                        <li>Add YouTube videos</li>
+                        <li>OCR for scanned documents</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cta">
+                <h3>Let an AI read things for you.</h3>
+                <p>Just upload and start asking questions. We will do the rest.</p>
+                <a href="#" class="get-started">Get started</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 SCAI - Standards & Codes AI. All rights reserved.</p>
+    </footer>
+    <script src="js/index.js"></script>
+    <script src="js/pricing.js"></script>
+</body>
+</html>

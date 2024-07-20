@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCAI - Standards & Codes AI</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+
+        header {
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+            padding-left: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li:first-child {
+            margin-left: 200px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        nav .actions {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .actions a.try-for-free {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #f0f0f0;
+            margin-top: 100px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .launch-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .user-count {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .features {
+            background-color: #fff;
+            padding: 50px 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            margin-top: 100px;
+        }
+
+        .features p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .feature-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .feature-card {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(30% - 20px);
+            max-width: calc(30% - 20px);
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .faqs {
+            background-color: #fff;
+            padding: 50px 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .faqs h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            margin-top: 100px;
+        }
+
+        .faq-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .faq-item {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(45% - 40px); /* 45% width with some margin */
+            max-width: calc(45% - 40px); /* 45% width with some margin */
+        }
+
+        .faq-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .contact {
+            background-color: #fff;
+            padding: 50px 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            margin-top: 100px;
+        }
+
+        .contact p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .affiliate {
+            background-color: #fff;
+            padding: 50px 20px;
+            margin: 100px 0; /* Increased margin for better separation */
+            text-align: center;
+        }
+
+        .affiliate h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            margin-top: 100px;
+        }
+
+        .affiliate p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .affiliate .get-started {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .affiliate .get-started:hover {
+            background-color: #0056b3;
+        }
+
+        .affiliate .affiliate-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .affiliate .affiliate-step {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(30% - 20px);
+            max-width: calc(30% - 20px);
+        }
+
+        .affiliate .affiliate-step h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .affiliate .affiliate-step p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="images/logo.png" alt="SCAI Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#faqs">FAQs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#affiliate">Affiliate</a></li>
+                    <li><a href="login.html" class="login">Log in</a></li>
+                </ul>
+                <div class="actions">
+                    <a href="login.html" class="try-for-free">Try for free</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Read and Research with AI</h1>
+            <div class="features-list">
+                <div class="feature-item">
+                    <i class="fas fa-upload"></i>
+                    <p>Upload documents</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-search"></i>
+                    <p>Search for information</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <p>Get instant answers</p>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <a href="login.html" class="launch-button">Launch SCAI</a>
+            </div>
+            <p class="user-count">Join 50,000+ happy users</p>
+        </section>
+        
+        
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <h2>Features</h2>
+            <p>How SCAI is different from other chat with PDF products</p>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <h3>Jump to exact page</h3>
+                    <p>With each answer, you get accurate citations and can jump to the exact page in the document that contains the answer.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Talk to entire library</h3>
+                    <p>You can chat with your entire library or a group of books at once. Not just one doc at a time.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>No page limit</h3>
+                    <p>You can upload 1000-page documents or more without any problems. There's no page limit for each document.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Cloud storage</h3>
+                    <p>All your documents are stored in the cloud to reference anytime.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Affordable</h3>
+                    <p>Paid plans start at only $6/month (on annual).</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Upload any doc type</h3>
+                    <p>You can upload any type of doc (.pdf, .doc, .ppt, .epub, kindle book) or even add an article link.</p>
+                </div>
+            </div>
+        </section>
+        <!-- FAQs Section -->
+        <section id="faqs" class="faqs">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-cards">
+                <div class="faq-item">
+                    <h3>What type of files can I upload?</h3>
+                    <p>You can upload almost any document or ebook format (.pdf, .epub, .azw, .doc, .ppt). If there's a format not listed here that you want to upload, please contact us at <a href="mailto:help@scai.co">help@scai.co</a>.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I talk to multiple books at the same time?</h3>
+                    <p>Yes, you can chat with a single book, an entire library, or a group of books. You can also create different collections such as Philosophy, Finance, Health, etc.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How many books can I upload?</h3>
+                    <p>You can upload up to 20,000 pages and all your books stay in the cloud to reference anytime. You can check our pricing <a href="pricing.html">here</a>.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you have SCAI available for businesses?</h3>
+                    <p>If you are a publisher, business, educational institute, teacher, professor, or course facilitator and want a custom solution similar to SCAI for your audience, contact us at <a href="mailto:help@scai.co">help@scai.co</a>.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How is the data stored?</h3>
+                    <p>We store data in secure cloud storage. We do not share data between users. All your data is private to you and you can delete it anytime.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How secure is my data?</h3>
+                    <p>Your data is protected with industry-standard encryption and security measures. We prioritize your privacy and ensure that your information remains safe and confidential.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What languages do you support?</h3>
+                    <p>We support 16 languages: Arabic, Chinese (simplified and traditional), English, French, German, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Spanish, Thai, Turkish, and Russian. You can have documents in multiple languages in your library.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is there a limit on the number of queries I can make?</h3>
+                    <p>Depending on your subscription plan, there may be limits on the number of queries you can make per day. Please refer to our pricing page for specific details (<a href="pricing.html">Pricing page link</a>).</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What are the benefits of a premium plan?</h3>
+                    <p>Our premium plans offer additional features such as higher query limits, larger file size uploads, priority support, and more. Check our pricing page for detailed benefits.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What's the best way to reach you?</h3>
+                    <p>Please email <a href="mailto:help@scai.co">help@scai.co</a> for any more questions.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need further assistance, please reach out to us at <a href="mailto:help@scai.co">help@scai.co</a>.</p>
+        </section>
+        <!-- Affiliate Section -->
+        <section id="affiliate" class="affiliate">
+            <h2>Affiliate</h2>
+            <p>Refer your friends, family, colleagues and earn 30% of the revenue we make from them for 12 months.</p>
+            <a href="#" class="get-started">Join Now</a>
+            <div class="affiliate-steps">
+                <div class="affiliate-step">
+                    <h3>1</h3>
+                    <p>Register and Provide PayPal Information</p>
+                    <p>Sign up as an affiliate and enter your PayPal details to receive payments. Click the button to get started and submit your information.</p>
+                </div>
+                <div class="affiliate-step">
+                    <h3>2</h3>
+                    <p>Share Your Personal Link</p>
+                    <p>Receive a unique link to share with your network of friends, family, and colleagues.</p>
+                </div>
+                <div class="affiliate-step">
+                    <h3>3</h3>
+                    <p>Monitor and Receive Payments</p>
+                    <p>Track your earnings on the dashboard and get paid on the 2nd of every month.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 SCAI - Standards & Codes AI. All rights reserved.</p>
+    </footer>
+    <script src="js/index.js"></script>
+</body>
+</html>
